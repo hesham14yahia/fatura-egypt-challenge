@@ -14,6 +14,7 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -21,6 +22,9 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                @if(auth()->user()->is_super_admin)
+                                <td>{{ $user->is_super_admin ? 'Super Admin' : 'User' }}</td>
+                                @endif
                             </tr>
                             @empty
                             No users in database
