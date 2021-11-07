@@ -20,6 +20,8 @@ class UserController extends Controller
         $data["password"] = Hash::make($data["password"]);
         User::create($data);
 
+        session()->flash("success", "User created successfully");
+
         return redirect()->route('users.create');
     }
 }
