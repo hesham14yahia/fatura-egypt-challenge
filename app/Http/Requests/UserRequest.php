@@ -23,10 +23,16 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ];
+
+        if (auth()->user()->is_super_admin) {
+            $rules['is_super_admin'] = [];
+        }
+
+        return $rules;
     }
 }

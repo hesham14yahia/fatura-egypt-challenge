@@ -54,6 +54,22 @@
                             </div>
                         </div>
 
+                        @if(auth()->user()->is_super_admin)
+                        <div class="form-group row">
+                            <div class="col-4"></div>
+                            <div class="col-md-6">
+                                <input type="checkbox" class="pt-1" id="is_super_admin" name="is_super_admin" value="1">
+                                <label for="is_super_admin" >{{ __('is super admin') }}</label>
+
+                                @error('is_super_admin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        @endif
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
