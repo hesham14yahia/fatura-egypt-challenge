@@ -38,6 +38,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        // disable register
+        return false;
         $this->middleware('guest');
     }
 
