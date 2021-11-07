@@ -9,6 +9,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        $users = User::paginate(20);
+
+        return view('user.list', compact('users'));
+    }
+
     public function create()
     {
         return view('user.create');
