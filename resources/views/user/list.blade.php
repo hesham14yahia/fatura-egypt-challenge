@@ -14,7 +14,9 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                @if(auth()->user()->is_super_admin)
                                 <th scope="col">Role</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
